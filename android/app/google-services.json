@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "492601261963",
+    "firebase_url": "https://directed-cove-229417.firebaseio.com",
+    "project_id": "directed-cove-229417",
+    "storage_bucket": "directed-cove-229417.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492601261963:android:66322e93b752b54c45398e",
+        "android_client_info": {
+          "package_name": "com.example.fuelapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492601261963-ickhn6o6eofklc62nd37949n2d407kbl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0ShroxGCZ31Laq02Ng64hEap8-2ft8Vo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492601261963-ickhn6o6eofklc62nd37949n2d407kbl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "492601261963-8n0fth0g237bonujcmmpug3441o1uq4m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fuel"
+              }
+            }       
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
