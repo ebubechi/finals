@@ -1,10 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:fuelapp/pages/generate.dart';
-import 'package:fuelapp/pages/display.dart';
-import 'package:fuelapp/pages/login.dart';
-// import 'package:fuel/pages/landing.dart';
+import 'locator.dart';
+import 'ui/router.dart';
+import 'package:fuelapp/managers/dialog_manager.dart';
+import 'package:fuelapp/services/dialog_services.dart';
+import 'package:fuelapp/services/navigation_service.dart';
+import 'package:fuelapp/ui/views/startup_view.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+
+// void main(){
+//   //Register all the models and services before the app starts
+//   setupLocator();
+
+//   runApp(MyApp());
+// } 
+
+
+void main() async => {
+      WidgetsFlutterBinding.ensureInitialized(),
+      await SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.portraitUp]),
+      
+      setupLocator(),
+      runApp(MyApp())
+    };
+
+
+
 
 class MyApp extends StatefulWidget {
   @override
@@ -17,19 +39,24 @@ class _MyAppState extends State<MyApp>{
   Widget build(BuildContext context){
    return MaterialApp(
      debugShowCheckedModeBanner: false,
-     title: 'Buy Fuel',
+     title: 'FillUp',
+     builder: (context, child) => Navigator(
+       key: locator<DialogService>().dailogNavigationKey,
+       onGenerateRoute: (settings) => MaterialPageRoute(
+         builder: (context) => DialogManager(child: child,),
+       )),
+     navigatorKey: locator<NavigationService>().navigationKey,
      theme: ThemeData(
        brightness: Brightness.light,
-       primarySwatch: Colors.green,
+       primarySwatch: Colors.blue,
        accentColor: Colors.white,
-       buttonColor: Colors.white,
+       textTheme: Theme.of(context).textTheme.apply(
+         fontFamily: 'Open Sans',
+       )
+      //  buttonColor: Colors.white,
      ),
-     routes: <String, WidgetBuilder>{
-       '/': (BuildContext contextt) => LoginPage(),
-       '/Otp': (BuildContext context) => OtpGeneratePage(),
-       '/gened':(BuildContext context) => GeneratedPage(),
-        // '/generate': (BuildContext context) => OtpGeneratePage(),
-     },
+     home: StartUpView(),
+     onGenerateRoute: generateRoute,
     );
   }
 }
