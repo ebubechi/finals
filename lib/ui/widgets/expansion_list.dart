@@ -63,7 +63,7 @@ class _ExpansionListState extends State<ExpansionList> {
             height: 2,
             color: Colors.grey[300],
           ),
-          ..._getDropdownListItems()
+          _getDropdownListItems()
         ],
       ),
     );
